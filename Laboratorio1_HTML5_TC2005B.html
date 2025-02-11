@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title> Laboratorio 1: Introducción a las aplicaciones web, HTML5 y ciclo de vida de los sistemas de información </title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Laboratorio 1: Mi Website</h1>
+        </header>
+
+            <nav>
+                <ul>
+                    <li><a href="#sobreMi">Sobre mí</a></li>
+                    <li><a href="#preguntas">Q&A: Desarrollo Web</a></li>
+                    <li><a href="#referencias">Referencias</a></li>
+
+                </ul>
+            </nav>
+
+
+        <section id="sobreMi">
+            <h2>Sobre mí</h2>
+            <article>
+                <p>
+                    Soy Elizabeth Orduña, estudiante de ITC en el Tecnológico de Monterrey.
+                </p>
+        
+                <h3>Mis intereses</h3>
+                <label for="volei">Voleibol 🏐</label>
+                <meter id="volei" value="0.7">70%</meter><br>
+
+                <label for="piano">Piano 🎹</label>
+                <meter id="piano" value="0.8">80%</meter><br>
+
+                <label for="pelis">Películas 🍿</label>
+                <meter id="pelis" value="0.9">90%</meter><br>
+
+                <label for="progra">Programación ⌨️</label>
+                <meter id="progra" value="0.9">90%</meter><br>
+        
+                <h3>¿Qué he hecho? Mi experiencia</h3>                
+                <p>
+                    A lo largo de la carrera he tenido la oportunidad de desarrollar diferentes proyectos desde un videojuego hasta una página web para un control de riego.
+                </p>
+                <p>Siempre busco dar mi 110% en cada proyecto, así que si lo multiplicas por la cantidad de proyectos que he hecho, podrás notar que me he esforzado bastante.</p>
+                <p>Te dejo hacer la cuenta (número de proyectos * mi esfuerzo ⭐)</p>
+                <form oninput="x.value=parseInt(a.value) * parseInt(b.value)">
+                    <input type="number" id="a" value="0"> * <input type="number"  id="b" value="0"> 
+                    = <output name="x" for="a b"></output>
+                </form>
+            </article>
+        </section>
+        
+        <header id="preguntas"><h2>Q&A: Desarrollo Web</h2></header>
+
+        <details>
+            <summary>Click para ver el <strong>Q&A: Desarrollo Web</strong></summary>
+            <section>
+                <h3>Q&A</h3>
+            <article>
+                <h3>¿Cuál es la diferencia entre Internet y la World Wide Web?</h3>
+                <p>Internet es la red global de computadoras conectadas entre sí, mientras que la World Wide Web (WWW) es un sistema de información que usa Internet para acceder a documentos y recursos a través de enlaces y direcciones web.</p>
+            </article>
+
+            <article>
+                <h3>¿Cuáles son las partes de un URL?</h3>
+                <p>Un <abbr title="Uniform Resource Locator">URL</abbr> es la dirección de un recurso en la web. Sus partes principales son el protocolo (HTTP o HTTPS), el dominio (nombre del servidor donde está alojado el recurso), la ruta (ubicación específica del recurso en el servidor) y los parámetros (información adicional que puede modificar la solicitud).</p>
+            </article>
+                
+            <article>
+                <h3>¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</h3>
+                <p>Los métodos HTTP permiten la comunicación entre el navegador y el servidor. <strong>GET</strong> solicita datos sin modificarlos, <strong>POST</strong> envía información al servidor para crear un recurso, <strong>PUT</strong> actualiza un recurso existente, <strong>PATCH</strong> aplica modificaciones parciales, <strong>DELETE</strong> elimina un recurso, <strong>HEAD</strong> es similar a <strong>GET</strong> pero sin devolver el contenido, <strong>OPTIONS</strong> muestra las opciones disponibles y <strong>TRACE</strong> se usa para diagnóstico</p>
+            </article>
+
+            <article>
+                <h3>¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</h3>
+                <p>Cuando envías un formulario con usuario y contraseña, se debe utilizar el método <strong>POST</strong>, ya que permite enviar datos de forma segura y sin que sean visibles en la URL.</p>
+            </article>
+
+            <article>
+                <h3>¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?</h3>
+                <p>Cuando accedes a una página web desde un navegador, se utiliza el método <strong>GET</strong>, porque solo solicita la información sin modificarla.</p>
+            </article>
+                
+            <article>
+                <h3>Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?</h3>
+                <p>El código de respuesta 200 OK significa que la solicitud fue exitosa y que el servidor ha entregado el recurso solicitado sin problemas. No indica ningún error.</p>
+            </article>
+
+            <article>
+                <h3>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</h3>
+                <p>El error 404 Not Found significa que el recurso solicitado no existe en el servidor. Es responsabilidad del desarrollador corregirlo si el recurso debería existir.</p>
+            </article>
+
+            <article>
+                <h3>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</h3>
+                <p>El error 500 Internal Server Error significa que hubo un problema en el servidor al procesar la solicitud. En este caso, sí es responsabilidad del desarrollador corregir el problema para que el sitio funcione correctamente.</p>
+            </article>
+
+            <article>
+                <h3>¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)?</h3>
+                <p>Son etiquetas que la W3C aconseja no usar en nuevos desarrollos, aunque los navegadores aún deben ser compatibles con ellas para garantizar que los sitios web antiguos sigan funcionando correctamente. Ejemplo: <strong>acronym, applet, basefont, big, center, dir, font, entre otros.</strong></p>
+            </article>
+
+            <article>
+                <h3>¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</h3>
+                <p>Algunas de las principales diferencias entre HTML4 y HTML5 incluyen la compatibilidad con navegadores, la introducción de nuevas etiquetas, un soporte multimedia más avanzado, formularios optimizados y la incorporación de nuevas APIs.</p>
+            </article>                
+
+            <article>
+                <h3>¿Qué componentes de estructura y estilo tiene una tabla?</h3>
+                <p>Una tabla en HTML5 tiene los siguientes componentes estructurales: <strong>table</strong> (contenedor principal), <strong>thead</strong> (encabezado), <strong>tbody</strong> (cuerpo), <strong>tfoot</strong> (pie), <strong>tr</strong> (filas), <strong>th</strong> (celdas de encabezado), y <strong>td</strong> (celdas de datos). Para estilo, se pueden usar atributos como <strong>colspan</strong>, <strong>rowspan</strong>, y elementos como <strong>caption</strong> para títulos.</p>
+            </article>
+            
+            <article>
+                <h3>¿Cuáles son los principales controles de una forma HTML5?</h3>
+                <p>Los principales controles de formulario en HTML5 incluyen: <strong>input</strong> (con tipos como text, password, email, number, date, color, range), <strong>textarea</strong> para texto multilínea, <strong>select</strong> para listas desplegables, <strong>button</strong>, <strong>checkbox</strong>, <strong>radio</strong>, y nuevos elementos como <strong>datalist</strong> para sugerencias y <strong>output</strong> para mostrar resultados.</p>
+            </article>
+            
+            <article>
+                <h3>¿Qué tanto soporte HTML5 tiene el navegador que utilizas?</h3>
+                <p>Los navegadores modernos como Chrome ya tienen excelente soporte para HTML5. El antiguo medidor html5test.com ya no funciona. </p>
+            </article>
+            
+            <article>
+                <h3>¿Cuál es el ciclo de vida de los sistemas de información?</h3>
+                <p>El ciclo de vida de los sistemas de información consiste en: <strong>Nacimiento</strong> (identificación de necesidades), <strong>Desarrollo</strong> (creación del sistema), <strong>Operación</strong> (uso y mantenimiento), <strong>Mantenimiento</strong> (actualizaciones y mejoras), y <strong>Muerte</strong> (cuando el sistema se vuelve obsoleto y necesita ser reemplazado).</p>
+            </article>
+            
+            <article>
+                <h3>¿Cuál es el ciclo de desarrollo de sistemas de información?</h3>
+                <p>El ciclo de desarrollo de sistemas de información (SDLC) incluye las siguientes fases: <strong>Planificación</strong> (definición de objetivos), <strong>Análisis</strong> (recopilación de requisitos), <strong>Diseño</strong> (arquitectura y especificaciones), <strong>Implementación</strong> (codificación), <strong>Pruebas</strong> (verificación y validación), <strong>Despliegue</strong> (instalación y configuración), y <strong>Mantenimiento</strong> (soporte continuo y mejoras).</p>
+            </article>
+                
+        </section>
+        </details>
+
+        <details id="referencias">
+            <summary>Click para ver las <strong>Referencias</strong></summary>
+            <section>
+                <h3>Referencias</h3>
+                <p>Deprecated tags in html5. (2022). Stack Overflow. <a href="https://stackoverflow.com/questions/9228277/deprecated-tags-in-html5">https://stackoverflow.com/questions/9228277/deprecated-tags-in-html5</a></p>
+                <p>freeCodeCamp. (2019, 11 de septiembre). An introduction to HTTP: everything you need to know. freeCodeCamp.org. <a href="https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/">https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/</a></p>
+                <p>Guerrero, A. C. (2015, 20 de julio). Ciclo de vida de un sistema de información • gestiopolis. Gestiopolis. <a href="https://www.gestiopolis.com/ciclo-de-vida-de-un-sistema-de-informacion/">https://www.gestiopolis.com/ciclo-de-vida-de-un-sistema-de-informacion/</a></p>
+                <p>HTML5 vs. HTML4: ¿Cuál es la diferencia? (s.f.). desarrolladoraweb.com. <a href="https://desarrolladoraweb.com/blog/html5-vs-html4-cual-es-la-diferencia">https://desarrolladoraweb.com/blog/html5-vs-html4-cual-es-la-diferencia</a></p>
+                <p>Mourelle, L. (2012, 27 de abril). Etiquetas que ya no se usan. CompuGraf3. <a href="https://compugraf3.wordpress.com/2012/04/24/etiquetas-que-ya-no-se-usan/">https://compugraf3.wordpress.com/2012/04/24/etiquetas-que-ya-no-se-usan/</a></p>
+                <p>Tipos de input de HTML5 - Aprende desarrollo web | MDN. (s.f.). MDN Web Docs. <a href=" https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/HTML5_input_types"> https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/HTML5_input_types</a></p>
+            </section>
+        </details>
+
+        <footer>
+            <p><strong>Nombre:</strong> Maria Elizabeth Orduña Toledo</p>
+            <p><strong>Matrícula:</strong> A01424302</p>
+            <p><strong>Correo: </strong>A01424302@tec.mx</p>
+            <p><strong>Editor usado:</strong> Visual Studio Code (<a href="https://code.visualstudio.com/">Visitar sitio de VSC</a>)</p>
+        </footer>
+    </body>
+</html>
