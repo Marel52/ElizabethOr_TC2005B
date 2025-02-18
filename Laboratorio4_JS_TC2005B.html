@@ -3,6 +3,7 @@
     <head>
         <title>Lab4</title>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/Plantilla.css">
 
     </head>
     <body>
@@ -45,6 +46,42 @@
     <h2>Ejercicio 6: Calculadora (Suma y Resta) </h2>
     <button id="ejercicio6">Ejecutar ejercicio 6</button>
     </section>
+
+    <section class="pregunta">
+        <h2>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</h2>
+        <p><strong>Semejanzas:</strong> Java y JavaScript comparten una sintaxis similar basada en C, ambos utilizan programación orientada a objetos, emplean llaves {} para delimitar bloques de código y comparten palabras clave como if, else, while y for.</p>
+        <p><strong>Diferencias:</strong> Java es compilado a bytecode y ejecutado en JVM, posee un tipado fuerte, y se utiliza principalmente para aplicaciones de servidor, móviles y empresariales. JavaScript, por su parte, es interpretado, se ejecuta en navegadores o Node.js, tiene tipado dinámico, y se usa principalmente para desarrollo web frontend, aunque también sirve para backend con Node.js.</p>
+    </section>
+    
+    <section class="pregunta">
+        <h2>¿Qué métodos tiene el objeto Date? (Menciona al menos 5)</h2>
+        <p>El objeto Date en JavaScript incluye varios métodos útiles. El método <code>getDate()</code> devuelve el día del mes (1-31). <code>getMonth()</code> retorna el mes actual (0-11). <code>getFullYear()</code> proporciona el año en formato de 4 dígitos. <code>getHours()</code> devuelve la hora actual (0-23). <code>setTime()</code> permite establecer la fecha y hora basándose en milisegundos. Adicionalmente, <code>toISOString()</code> convierte la fecha a formato ISO 8601.</p>
+    </section>
+    
+    <section class="pregunta">
+        <h2>¿Qué métodos tienen los arreglos? (Menciona al menos 5)</h2>
+        <p>Los arreglos en JavaScript disponen de numerosos métodos. <code>push()</code> añade elementos al final del array. <code>pop()</code> elimina y devuelve el último elemento. <code>map()</code> crea un nuevo array aplicando una función a cada elemento del original. <code>filter()</code> genera un nuevo array con los elementos que cumplen una condición específica. <code>reduce()</code> procesa el array para producir un único valor mediante una función acumuladora. También existe <code>forEach()</code>, que ejecuta una función para cada elemento del array sin crear un nuevo array.</p>
+    </section>
+    
+    <section class="pregunta">
+        <h2>¿Cómo se declara una variable con alcance local dentro de una función?</h2>
+        <p>Para declarar una variable con alcance local dentro de una función, se utiliza la palabra clave <code>let</code> o <code>const</code>. Por ejemplo: <code>function miFuncion() { let variableLocal = "Solo accesible dentro de miFuncion"; const otraVariableLocal = 42; }</code>. Las variables declaradas de esta manera solo son accesibles dentro del ámbito de la función y no pueden ser utilizadas fuera de ella.</p>
+    </section>
+    
+    <section class="pregunta">
+        <h2>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</h2>
+        <p>Utilizar variables globales dentro de funciones conlleva varias implicaciones negativas. Genera mayor acoplamiento y dependencias ocultas en el código, aumentando su complejidad. Existe un riesgo constante de modificaciones accidentales desde cualquier parte del programa. Se dificultan los procesos de testing y depuración al no tener control sobre quién modifica estas variables. En aplicaciones grandes, pueden producirse colisiones de nombres. Además, resulta complicado rastrear los cambios de estado de estas variables. Finalmente, las variables globales permanecen en memoria durante toda la ejecución del programa, lo que puede aumentar innecesariamente el consumo de recursos.</p>
+    </section>
+
+    <section class="referencias">
+        <details>
+            <summary><strong>Referencias</strong></summary>
+            <li>Equipo editorial de IONOS. (3 de noviembre del 2023). Java vs. JavaScript: comparación de los dos lenguajes. IONOS Digital Guide. https://www.ionos.mx/digitalguide/paginas-web/desarrollo-web/java-vs-javascript/</li>
+            <br><li>¿Por qué es considerado una mala práctica utilizar variables globales? (n.d.). Stack Overflow En Español. https://es.stackoverflow.com/questions/29177/por-qu%C3%A9-es-considerado-una-mala-pr%C3%A1ctica-utilizar-variables-globales</li>
+            <br><li>Unir, V. (14 de junio del 2023). ¿Cuáles son las diferencias entre JAVA y JavaScript? Universidad Virtual. | UNIR Ecuador - Maestrías Y Grados Virtuales. https://ecuador.unir.net/actualidad-unir/diferencias-java-javascript/</li>
+            <br><li>Zubikarai, S. (12 de enero del 2022). Manual de arreglos en JavaScript: Métodos de arreglos de JS explicados con ejemplos. freeCodeCamp.org. https://www.freecodecamp.org/espanol/news/el-manual-de-arreglos-en-javascript/</li>
+        </details>
+    </section>    
 
     </body>
     <script src="js/Laboratorio4.js"></script>
