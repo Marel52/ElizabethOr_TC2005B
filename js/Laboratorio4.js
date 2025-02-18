@@ -1,3 +1,5 @@
+window.alert("Aquí está mi laboratorio 4 :b  Att: Elizabeth" );
+
 /*Ej. 1: Entrada: un número pedido con un prompt.
 Salida: Una tabla con los números del 1 al número dado con sus cuadrados y cubos.*/
 const boton1 = document.getElementById("ejercicio1");
