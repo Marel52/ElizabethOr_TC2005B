@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 5</title>    
+</head>
+
+<style>
+    body {
+    margin: 0 auto;
+    max-width: 50em;
+    line-height: 1.5;
+    padding: 4em 1em;
+    }
+</style>
+
+<body>
+<header>   
+    <p class="title is-1">Material design</p>
+    <p class="subtitle is-3">Frameworks de estilo: BULMA</p>
+
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+        <ul>
+          <li><a href="#introduccion">Introducción</a></li>
+          <li><a href="#principios">Principios</a></li>
+          <li><a href="#componentes">Componentes</a></li>
+          <li><a href="#referencias">Referencias</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div id="introduccion" class="content is-medium">
+    <h1><br>Introducción</h1>
+    <p>
+      El <strong>Material Design</strong>, creado por Google, es un lenguaje visual que recopila los principios básicos del 
+      diseño exitoso con la innovación de la tecnología y la ciencia.       
+      Se basa en objetos táctiles inspirados en el papel y la tinta, pero con la <strong>flexibilidad</strong> de la tecnología digital. <br>
+
+      <br><strong>Bulma</strong> es un <strong>framework CSS</strong> moderno basado en Flexbox que, aunque no implementa directamente Material Design, comparte muchos de sus principios de diseño 
+      y puede ser adaptado para crear interfaces que sigan las pautas de <strong>Material Design</strong>.
+    </p>
+</div>
+
+<div id="principios" class="content is-medium">
+    <h2 id="principios">Principios</h2>
+    <p>
+       Se busca <strong>unificar y sintetizar</strong> en un mismo sistema la experiencia de usuario (UX) a lo largo de varias plataformas y dispositivos. 
+       A pesar de esta unificación, también se busca proveer una base que sea <strong>personalizable y extensible</strong> para la innovación y expresión.
+    </p>
+    <ul>
+      <li><strong>El Material es la metáfora: </strong>Basado en la realidad tangible, inspirado en el papel y la tinta.</li>
+      <li><strong>Atrevido, gráfico e intencional: </strong>Guiado por los métodos tradicionales de imprenta. Crear una interfaz significativa, evidente e intrepida.</li>
+      <li><strong>La animación tiene significado: </strong>La animación dirige la atención del usuario y preserva la continuidad mediante una retroalimentación discreta y transiciones fluidas.</li>
+      <li><strong>Multi-plataforma: </strong>Ofrecer una experiencia de interfaz uniforme en diversas plataformas, empleando componentes adaptados para Android, iOS, Flutter y la web.</li>
+    </ul>
+</div>
+
+<div id="componentes" class="content is-medium">
+    <h2>Componentes</h2>
+    <p>
+        Los componentes son fundamentales en Material Design y se utilizan para construir interfaces
+        de usuario <strong>coherentes y funcionales</strong> en diversas plataformas.
+    </p>
+    <div class="columns is-desktop" >
+        <div class="column has-background-primary has-text-white">
+            <h5>Botones (Buttons)</h5>
+            <p>Elementos interactivos que permiten a los usuarios realizar acciones en la interfaz. </p>
+            <button class="button is-white">Botón</button>
+        </div>
+        <div class="column has-background-link has-text-white">
+            <h5>Tarjetas (Cards)</h5>
+            <p>Contenedores que agrupan información relacionada, como texto, imágenes y enlaces, en un solo bloque visual. 
+                Las tarjetas facilitan la organización y presentación de contenido.</p>
+                <div class="card">
+                    <div class="card-content">
+                      <div class="content">
+                        Esto es una tarjeta
+                      </div>
+                    </div>
+                  </div>
+        </div>
+        <div class="column has-background-warning has-text-white">
+            <h5>Diálogos (Dialogs)</h5>
+            <p>Ventanas emergentes que requieren la atención del usuario para confirmar una acción, proporcionar información adicional o solicitar una entrada.</p>
+            <div class="notification is-link is-light">
+                <button class="delete"></button>
+                Esto es una notificación (diálogo)
+            </div>
+        </div>
+        <div class="column has-background-danger has-text-white">
+            <h5>Menús</h5>
+            <p>Ofrecen opciones o acciones adicionales al usuario. Se activan al interactuar con un botón o un área específica de la interfaz, 
+                permitiendo una navegación más profunda o la ejecución de funciones específicas sin sobrecargar la pantalla principal.</p>
+
+                <li>
+                    <a class="menu-label has-background-warning">Esto es un Menú</a>
+                    <ul class="menu-list has-background-warning">
+                      <li><a>Opción 1</a></li>
+                      <li><a>Opción 2</a></li>
+                      <li><a>Opción 3</a></li>
+                    </ul>
+                  </li>
+        </div>
+      </div>
+</div>
+
+  <div id="referencias" class="content">
+    <br><h3>Referencias</h3>
+    <li>
+        Components – Material Design 3. (n.d.). Material Design. https://m3.material.io/components
+    </li>
+    <li>
+        Desarrollo. (10 de marzo del 2023). ¿Qué es Material design? Tuatara Agencia Boutique. https://tuatara.co/blog/diseno/material-design/
+    </li>
+    <br><li>
+        HSIgrup. (2 de febrero del 2023). 9 principios de diseño que Google te da en su Material Design - hsi Group. Hsi Group. https://www.hsi.es/9-principios-de-diseno-que-google-te-da-en-su-material-design/
+    </li>
+    <br><li>
+        Material Design - Version 2. (n.d.). Material Design. https://m2.material.io/design/introduction#principles
+    </li>
+    <br><li>
+        S, M. A. (12 de abril del 2019). Sistema de diseño: Material Design. HyperBlog. https://www.tesseractspace.com/blog/sistema-de-diseno-material-design/
+    </li>
+  </div>
+
+    <footer class="footer">
+    <div class="content has-text-centered">
+        <p><strong>Nombre:</strong> Maria Elizabeth Orduña Toledo</p>
+        <p><strong>Matrícula:</strong> A01424302</p>
+        <p><strong>Correo:</strong> A01424302@tec.mx</p>
+        <p><strong>Editor usado:</strong> Visual Studio Code (<a href="https://code.visualstudio.com/">Visitar sitio de VSC</a>)</p>
+    </div>
+  </footer>
+    
+</body>
+</html>
