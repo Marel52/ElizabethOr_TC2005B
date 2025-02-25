@@ -1,0 +1,23 @@
+{
+  "name": "elizabethor_tc2005b",
+  "version": "1.0.0",
+  "description": "Laboratorios TC2005B feb-jun 2025 QRO",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marel52/ElizabethOr_TC2005B.git"
+  },
+  "keywords": [
+    "Construccion",
+    "Software"
+  ],
+  "author": "Elizabeth Or",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marel52/ElizabethOr_TC2005B/issues"
+  },
+  "homepage": "https://github.com/Marel52/ElizabethOr_TC2005B#readme"
+}
