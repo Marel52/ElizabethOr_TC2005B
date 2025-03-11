@@ -10,17 +10,18 @@
   <body>
     <header>
       <nav>
-        <button class="sign white" onclick="document.querySelector('nav.drawer').show()">
+        <button class="sign white" onclick="document.getElementById('registroModal').showModal()">
           <i>people</i>
           <span>Registrarse</span>
         </button>
-        <button class="log white" onclick="document.querySelector('nav.drawer').show()">
+        <button class="log white" onclick="document.getElementById('registroModal').showModal()">
           <i>person</i>
           <span>Iniciar sesión</span>
         </button>
         <h5 class="max center-align"></h5>
       </nav>
     </header> 
+    
     <main>
       <br>
       <section class="section">
@@ -28,7 +29,7 @@
           <h1 class="title center-align">Bienvenido a <strong>Marel's</strong></h1>
           <p class="subtitle center-align">Un lugar donde encontrarás mis laboratorios</p>
           
-          <div class="row center-container" >
+          <div class="row center-container">
             <div class="s12 m4">
               <article class="card center-align">
                 <div class="medium-space"></div>
@@ -47,8 +48,8 @@
               <article class="card center-align">
                 <div class="medium-space"></div>
                 <i class="xx-large white">web</i>
-                <h5>Laboratorio 4: JavaSript</h5>
-                <p>Ejercicios de JavaSript</p>
+                <h5>Laboratorio 4: JavaScript</h5>
+                <p>Ejercicios de JavaScript</p>
                 <div class="medium-space"></div>
                 <a href="/Lab4" class="button filled white">
                   <span>Abrir</span>
@@ -61,7 +62,7 @@
               <article class="card center-align">
                 <div class="medium-space"></div>
                 <i class="xx-large white">web</i>
-                <h5>Laboratorio 5: FrameWork</h5>
+                <h5>Laboratorio 5: Framework</h5>
                 <p>Página implementando el Framework BULMA</p>
                 <div class="medium-space"></div>
                 <a href="/Lab5" class="button filled white">
@@ -78,7 +79,7 @@
                 <h5>Laboratorio 6: Programación <br> Orientada a Eventos</h5>
                 <p>Validador de contraseñas</p>
                 <div class="medium-space"></div>
-                <a href="/Lab5" class="button filled white">
+                <a href="/Lab6" class="button filled white">
                   <span>Abrir</span>
                 </a>
                 <div class="medium-space"></div>
@@ -88,18 +89,33 @@
         </div>
       </section>
     </main>
-    
+
+    <!--Registro/Iniciar sesión -->
+    <dialog id="registroModal">
+      <form method="POST" action="/registro">
+        <h3>Registro / Inicio de sesión</h3>
+        <label>Nombre:</label>
+        <input type="text" class="black" name="nombre" required>
+        <label><br>Contraseña:</label>
+        <input type="password" class="black" name="password" required>
+        <div class="right-align">
+          <button type="submit" class="button filled primary">Enviar</button>
+          <button type="button" class="button" onclick="document.getElementById('registroModal').close()">Cerrar</button>
+        </div>
+      </form>
+    </dialog>
+
     <footer class="secondary white">
       <div class="center-align">
         <p>
-          <strong>Mi App Web</strong> - Creada para Construcción de software y toma de decisiones.
+          <strong>Mi App Web con Node.js</strong> - Creada para Construcción de software y toma de decisiones.
           <br>
           BeerCSS by <a href="https://github.com/beercss/beercss">León Fu</a>.
           Licencia <a href="https://opensource.org/license/mit">MIT</a>.
         </p>
       </div>
     </footer>
-    
+
     <script src="/app_lab10.js"></script>
   </body>
 </html>
