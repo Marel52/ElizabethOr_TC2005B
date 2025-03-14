@@ -3,3 +3,15 @@
 Nombre: Elizabeth
 Contraseña: 1234
 
+Nombre: Maria
+Contraseña: 123
+
+Nombre: Maria
+Contraseña: Elizabeth
+
+Nombre: Raul
+Contraseña: raul
+
+Nombre: yo
+Contraseña: hola
+
