@@ -1,0 +1,43 @@
+extends layouts/main-layout.pug
+
+block content
+  div.row.center-container
+    - 
+      const labs = [
+        { 
+          icon: 'web', 
+          title: 'Laboratorio 1: HTML5', 
+          description: '¿Quién soy?. Página de presentación.', 
+          link: '/labs/Lab1' 
+        },
+        { 
+          icon: 'web', 
+          title: 'Laboratorio 4: JavaScript', 
+          description: 'Ejercicios de JavaScript', 
+          link: '/labs/Lab4' 
+        },
+        { 
+          icon: 'web', 
+          title: 'Laboratorio 5: Framework', 
+          description: 'Página implementando el Framework BULMA', 
+          link: '/labs/Lab5' 
+        },
+        { 
+          icon: 'web', 
+          title: 'Laboratorio 6: Programación Orientada a Eventos', 
+          description: 'Validador de contraseñas', 
+          link: '/labs/Lab6' 
+        }
+      ]
+    
+    each lab in labs
+      div.s12.m4
+        article.card.center-align
+          div.medium-space
+          i.xx-large.white= lab.icon
+          h5= lab.title
+          p= lab.description
+          div.medium-space
+          a(href=lab.link).button.filled.white
+            span Abrir
+          div.medium-space
