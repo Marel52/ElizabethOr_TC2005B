@@ -11,7 +11,6 @@ const fileMap = {
   "/Lab6": "Laboratorio6_POE.html"
 };
 
-
 router.get('/:labId', (req, res) => {
   const labPath = `/${req.params.labId}`;
   
@@ -22,23 +21,17 @@ router.get('/:labId', (req, res) => {
     res.sendFile(filePath, (err) => {
       if (err) {
         console.error('Error al enviar el archivo:', err);
-        res.status(404).send(`
-          <div>
-            <h1>Error 404</h1>
-            <p>Laboratorio no encontrado</p>
-            <a href="/">Volver al inicio</a>
-          </div>
-        `);
+        res.status(404).render('404', { 
+          title: 'Laboratorio no encontrado',
+          message: 'El laboratorio solicitado no existe' 
+        });
       }
     });
   } else {
-    res.status(404).send(`
-      <div>
-        <h1>Error 404</h1>
-        <p>Laboratorio no encontrado</p>
-        <a href="/">Volver al inicio</a>
-      </div>
-    `);
+    res.status(404).render('404', { 
+      title: 'Laboratorio no encontrado',
+      message: 'El laboratorio solicitado no existe' 
+    });
   }
 });
 
