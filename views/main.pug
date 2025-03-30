@@ -1,0 +1,57 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title= title || "Mis Labs"
+    link(href="https://cdn.jsdelivr.net/npm/beercss@3.9.7/dist/cdn/beer.min.css" rel="stylesheet")
+    script(type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.9.7/dist/cdn/beer.min.js")
+    
+    block styles
+  
+  body
+    header
+      nav
+        button.sign.white(onclick="document.getElementById('registroModal').showModal()")
+          i people
+          span Registrarse
+        button.log.white(onclick="document.getElementById('registroModal').showModal()")
+          i person
+          span Iniciar sesión
+        h5.max.center-align
+    
+    main
+      br
+      section.section
+        div.container
+          h1.title.center-align Bienvenido a 
+            strong Marel's
+          p.subtitle.center-align Un lugar donde encontrarás mis laboratorios
+          
+          block content
+          
+          dialog#registroModal
+            form(method="POST" action="/user/registro")
+              h3 Registro / Inicio de sesión
+              label Nombre:
+              input.black(type="text" name="nombre" required)
+              label 
+                br
+                | Contraseña:
+              input.black(type="password" name="password" required)
+              div.right-align
+                button.button.filled.primary(type="submit") Enviar
+                button.button(type="button" onclick="document.getElementById('registroModal').close()") Cerrar
+    
+    footer.secondary.white
+      div.center-align
+        p
+          strong Mi App Web con Express 
+          | - Creada para Construcción de software y toma de decisiones.
+          br
+          | BeerCSS by 
+          a(href="https://github.com/beercss/beercss") León Fu
+          | . Licencia 
+          a(href="https://opensource.org/license/mit") MIT
+    
+    script(src="/app_lab12.js")

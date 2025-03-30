@@ -37,15 +37,25 @@ block styles
     }
 
 block content
-  div.labs-container
-    each lab in labs
-      div.lab-card
-        article.card.center-align
-          div.medium-space
-          i.xx-large.white= lab.icon
-          h5= lab.title
-          p= lab.description
-          div.medium-space
-          a(href=`/labs/${lab.id}`).button.filled.white
-            span Detalles
-          div.medium-space
+  div.container
+    h1.title.center-align= lab.title
+    p.subtitle.center-align= lab.description
+    
+    div.card
+      div.card-content
+        h2 Detalles del Laboratorio
+        table.table
+          tr
+            th ID
+            td= lab.id
+          tr
+            th Título
+            td= lab.title
+          tr
+            th Descripción
+            td= lab.description 
+    
+    div.center-align.mt-4
+      // Use view route with correct lab ID
+      a(href=`/labs/${lab.id}/view`).button.filled.primary Ver Laboratorio Completo
+      a(href="/labs").button.outlined.secondary Volver al Inicio
