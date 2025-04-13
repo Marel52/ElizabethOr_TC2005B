@@ -1,9 +1,34 @@
-/*Construir objeto que se pueda exportar. 
-Exportar todas las funcionalidades de index*/
-const controller = {}
+const path = require('path');
+const fs = require('fs');
 
-controller.index = () =>{
-    response.send ('La conexión fue exitosa');
-}
+exports.getIndex = async (request, response, next) => {
+    try {
+        if (!request.session.isLoggedIn) {
+            return response.redirect('/user/login');
+        }
 
-module.exports = controller
+        const [labs] = await Lab.fetchAll();
+        
+        const labsWithIcons = labs.map(lab => {
+            return {
+                ...lab,
+                icon: 'web' 
+            };
+        });
+
+        response.render('index', { 
+            title: 'Mis Laboratorios', 
+            labs: labsWithIcons,
+            isLoggedIn: request.session.isLoggedIn,
+            userName: request.session.userName
+        });
+
+    } catch (error) {
+        console.error('Error al obtener laboratorios:', error);
+        response.status(500).render('404', {
+            title: 'Error',
+            message: 'Error al cargar los laboratorios'
+        });
+    }
+};
+
