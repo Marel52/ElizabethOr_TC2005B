@@ -1,5 +1,5 @@
 /*Construir objeto que se pueda exportar. 
-Exportar todad las funcionalidades de index*/
+Exportar todas las funcionalidades de index*/
 const controller = {}
 
 controller.index = () =>{
