@@ -1,51 +1,20 @@
-extends main.pug
-
-block styles
-  style.
-    .labs-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .lab-card {
-      flex: 0 1 calc(25% - 1rem);
-      min-width: 250px;
-      max-width: 300px;
-      margin: 0.5rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .lab-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    @media (max-width: 1200px) {
-      .lab-card {
-        flex: 0 1 calc(33.333% - 1rem);
-      }
-    }
-    @media (max-width: 900px) {
-      .lab-card {
-        flex: 0 1 calc(50% - 1rem);
-      }
-    }
-    @media (max-width: 600px) {
-      .lab-card {
-        flex: 0 1 100%;
-        max-width: 100%;
-      }
-    }
+extends main
 
 block content
-  div.labs-container
-    each lab in labs
-      div.lab-card
-        article.card.center-align
-          div.medium-space
-          i.xx-large.white= lab.icon
-          h5= lab.title
-          p= lab.description
-          div.medium-space
-          a(href=`/labs/${lab.id}`).button.filled.white
-            span Detalles
-          div.medium-space
+  div(class="container has-text-centered")
+    h3(class="title is-3 has-text-white") Mis Laboratorios
+    p(class="subtitle is-5 has-text-white") Selecciona un laboratorio para visualizarlo
+    
+    div(class="columns is-multiline is-centered")
+      each lab in labs
+        div(class="column is-12-mobile is-6-tablet is-4-desktop")
+          a(href=`/labs/${lab.id}` style="text-decoration: none;")
+            div(class="card has-background-dark has-text-white")
+              div(class="card-content")
+                div(class="has-text-centered mb-4")
+                  span(class="icon is-large")
+                    i(class="fas fa-code fa-3x")
+                h4(class="title is-4 has-text-white") #{lab.title}
+                p(class="has-text-white") #{lab.description}
+              div(class="card-footer has-background-dark")
+                p(class="card-footer-item has-text-white") Ver detalles
