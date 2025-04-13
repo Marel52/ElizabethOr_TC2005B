@@ -5,34 +5,38 @@ block content
     div(class="columns is-centered")
       div(class="column is-half")
         div(class="box has-background-dark has-text-white")
-          h2(class="title is-2 has-text-white") Registro en Marel's
-          p(class="subtitle is-4 has-text-white") Crea una cuenta para acceder a laboratorios y archivos
+          h2(class="title is-2 has-text-white") Bienvenido a Marel's
+          p(class="subtitle is-4 has-text-white") Para acceder a tus laboratorios y archivos, inicia sesión
           
           if error
             div(class="notification is-danger mt-4")
               p #{error}
           
-          form(action="/user/register" method="POST" class="mt-5")
+          if success
+            div(class="notification is-success mt-4")
+              p #{success}
+          
+          form(action="/user/login" method="POST" class="mt-5")
             input(type="hidden" name="_csrf" value=csrfToken)
             
             div(class="field")
               label(for="nombre" class="label has-text-white") Nombre de usuario:
               div(class="control has-icons-left")
-                input(class="input is-dark" type="text" name="nombre" id="nombre" placeholder="Elige un nombre de usuario" required)
+                input(class="input is-dark" type="text" name="nombre" id="nombre" placeholder="Tu nombre de usuario" required)
                 span(class="icon is-small is-left")
                   i(class="fas fa-user")
             
             div(class="field")
               label(for="password" class="label has-text-white") Contraseña:
               div(class="control has-icons-left")
-                input(class="input is-dark" type="password" name="password" id="password" placeholder="Elige una contraseña segura" required)
+                input(class="input is-dark" type="password" name="password" id="password" placeholder="Tu contraseña" required)
                 span(class="icon is-small is-left")
                   i(class="fas fa-lock")
             
             div(class="field mt-5")
               div(class="control")
-                button(type="submit" class="button is-primary is-fullwidth") Registrarse
+                button(type="submit" class="button is-primary is-fullwidth") Iniciar sesión
           
           div(class="mt-4 has-text-centered")
-            p ¿Ya tienes una cuenta? 
-              a(href="/user/login" class="has-text-primary") Inicia sesión aquí
+            p ¿No tienes una cuenta? 
+              a(href="/user/register" class="has-text-primary") Regístrate aquí
