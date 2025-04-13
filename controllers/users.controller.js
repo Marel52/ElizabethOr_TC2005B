@@ -48,6 +48,7 @@ exports.getLogin = (request, response, next) => {
 exports.postLogin = async (request, response, next) => {
     try {
         const name = request.body.nombre;
+        const password = request.body.password;
 
         const [users] = await User.findByName(name);
         
@@ -57,10 +58,22 @@ exports.postLogin = async (request, response, next) => {
         }
 
         const user = users[0];
+        
+        const passwordMatch = await User.verifyPassword(password, user.password);
+        
+        if (!passwordMatch) {
+            request.session.error = 'Contraseña incorrecta.';
+            return response.redirect('/user/login');
+        }
 
-
+        request.session.isLoggedIn = true;
+        request.session.userId = user.id;
+        request.session.userName = user.name;
+        request.session.success = `Bienvenido, ${user.name}!`;
+        
+        response.redirect('/');
     } catch (error) {
-        console.error('Error en el inicio de sesión', error);
+        console.error('Error en el inicio de sesión ', error);
         request.session.error = 'Error al iniciar sesión. Por favor, inténtalo de nuevo.';
         response.redirect('/user/login');
     }
