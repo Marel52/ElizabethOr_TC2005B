@@ -23,6 +23,10 @@ module.exports = class User {
         }
     }
 
+    static fetchAll() {
+        return db.execute('SELECT id, name, created_at FROM users');
+    }
+
     static findByName(name) {
         return db.execute('SELECT * FROM users WHERE name = ?', [name]);
     }
