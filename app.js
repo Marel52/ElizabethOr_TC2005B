@@ -46,9 +46,9 @@ app.use('/labs', labsRoutes.router);
 app.use('/user', userRoutes);
 
 app.get('/app.js', (req, res) => {
-  fs.readFile(path.join(rootFolder, 'app_lab12.js'), (err, data) => {
+  fs.readFile(path.join(rootFolder, 'app.js'), (err, data) => {
     if (err) {
-      console.error('Error leyendo app_lab12.js:', err);
+      console.error('Error leyendo app.js:', err);
       return res.status(404).render('404', { 
         title: 'Archivo no encontrado', 
         message: 'El archivo solicitado no existe' 
