@@ -45,3 +45,23 @@ exports.getLogin = (request, response, next) => {
     request.session.success = null;
 };
 
+exports.postLogin = async (request, response, next) => {
+    try {
+        const name = request.body.nombre;
+
+        const [users] = await User.findByName(name);
+        
+        if (users.length === 0) {
+            request.session.error = 'Usuario no encontrado.';
+            return response.redirect('/user/login');
+        }
+
+        const user = users[0];
+
+
+    } catch (error) {
+        console.error('Error en el inicio de sesión', error);
+        request.session.error = 'Error al iniciar sesión. Por favor, inténtalo de nuevo.';
+        response.redirect('/user/login');
+    }
+};
