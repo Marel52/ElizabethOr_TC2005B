@@ -1,57 +1,52 @@
 doctype html
-html
+html(class="has-background-black")
   head
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     title= title || "Mis Labs"
-    link(href="https://cdn.jsdelivr.net/npm/beercss@3.9.7/dist/cdn/beer.min.css" rel="stylesheet")
-    script(type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.9.7/dist/cdn/beer.min.js")
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
     
     block styles
   
-  body
-    header
-      nav
-        button.sign.white(onclick="document.getElementById('registroModal').showModal()")
-          i people
-          span Registrarse
-        button.log.white(onclick="document.getElementById('registroModal').showModal()")
-          i person
-          span Iniciar sesión
-        h5.max.center-align
+  body(class="has-background-black has-text-white")
+    // Navbar
+    nav(class="navbar is-black")
+      div(class="container")
+        div(class="navbar-brand")
+          a(class="navbar-item has-text-weight-bold is-size-4" href="/") Marel's
+        
+        if isLoggedIn
+          div(class="navbar-menu is-active")
+            div(class="navbar-start")
+              a(class="navbar-item" href="/user/users")
+                span(class="icon")
+                  i(class="fas fa-users")
+                span Usuarios
+            
+            div(class="navbar-end")
+              div(class="navbar-item")
+                span(class="mr-2") Hola, #{userName}!
+              div(class="navbar-item")
+                a(class="button is-danger" onclick="window.location='/user/logout'")
+                  span(class="icon")
+                    i(class="fas fa-sign-out-alt")
+                  span Cerrar sesión
     
+    // Main content
     main
-      br
-      section.section
-        div.container
-          h1.title.center-align Bienvenido a 
-            strong Marel's
-          p.subtitle.center-align Un lugar donde encontrarás mis laboratorios
-          
+      section(class="section")
+        div(class="container")
           block content
-          
-          dialog#registroModal
-            form(method="POST" action="/user/registro")
-              h3 Registro / Inicio de sesión
-              label Nombre:
-              input.black(type="text" name="nombre" required)
-              label 
-                br
-                | Contraseña:
-              input.black(type="password" name="password" required)
-              div.right-align
-                button.button.filled.primary(type="submit") Enviar
-                button.button(type="button" onclick="document.getElementById('registroModal').close()") Cerrar
     
-    footer.secondary.white
-      div.center-align
+    // Footer
+    footer(class="footer has-background-black has-text-white")
+      div(class="content has-text-centered")
         p
-          strong Mi App Web con Express 
-          | - Creada para Construcción de software y toma de decisiones.
-          br
-          | BeerCSS by 
-          a(href="https://github.com/beercss/beercss") León Fu
-          | . Licencia 
-          a(href="https://opensource.org/license/mit") MIT
+          strong(class="has-text-white") Mi App Web con Express 
+          span  - Creada para Construcción de software y toma de decisiones.
+        p
+          span Bulma CSS Framework - Licencia  
+          a(href="https://opensource.org/license/mit" class="has-text-primary") MIT
     
     script(src="/app.js")
