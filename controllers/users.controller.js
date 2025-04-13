@@ -26,10 +26,22 @@ exports.postRegister = async (request, response, next) => {
 
         request.session.success = 'Usuario registrado correctamente. Ahora puedes iniciar sesión.';
         response.redirect('/user/login');
-        
+
     } catch (error) {
         console.error('Error en el registro:', error);
         request.session.error = 'Error al registrar el usuario. Por favor, inténtalo de nuevo.';
         response.redirect('/user/register');
     }
 };
+
+exports.getLogin = (request, response, next) => {
+    response.render('users/login', {
+        title: 'Iniciar sesión',
+        error: request.session.error || null,
+        success: request.session.success || null,
+        csrfToken: request.csrfToken()
+    });
+    request.session.error = null;
+    request.session.success = null;
+};
+
