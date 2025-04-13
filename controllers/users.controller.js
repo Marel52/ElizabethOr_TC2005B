@@ -82,7 +82,7 @@ exports.postLogin = async (request, response, next) => {
 exports.getLogout = (request, response, next) => {
     request.session.destroy(err => {
         if (err) {
-            console.error('Error al cerrar sesión:', err);
+            console.error('Error al cerrar sesión', err);
         }
         response.redirect('/');
     });
