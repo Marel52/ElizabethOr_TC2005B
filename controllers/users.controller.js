@@ -1,5 +1,27 @@
 const User = require('../models/user.model');
 
+exports.getUsuarios = async (request, response, next) => {
+    try {
+        const [users] = await User.fetchAll();
+        
+        response.render('users/list', {
+            title: 'Usuarios registrados',
+            users: users,
+            isLoggedIn: request.session.isLoggedIn || false,
+            userId: request.session.userId || null,
+            success: request.session.success || null
+        });
+        
+        request.session.success = null;
+    } catch (error) {
+        console.error('Error al obtener usuarios ', error);
+        response.status(500).render('404', {
+            title: 'Error',
+            message: 'Error al cargar la lista de usuarios'
+        });
+    }
+};
+
 exports.getRegister = (request, response, next) => {
     response.render('users/register', {
         title: 'Registro',
