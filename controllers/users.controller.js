@@ -21,7 +21,15 @@ exports.postRegister = async (request, response, next) => {
             return response.redirect('/user/register');
         }
 
-    }catch (error) {
-        console.error('Error en el registro', error);
+        const newUser = new User(name, password);
+        await newUser.save();
+
+        request.session.success = 'Usuario registrado correctamente. Ahora puedes iniciar sesión.';
+        response.redirect('/user/login');
+        
+    } catch (error) {
+        console.error('Error en el registro:', error);
+        request.session.error = 'Error al registrar el usuario. Por favor, inténtalo de nuevo.';
+        response.redirect('/user/register');
     }
 };
