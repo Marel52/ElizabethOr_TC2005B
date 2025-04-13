@@ -45,7 +45,7 @@ app.use('/', indexRoutes);
 app.use('/labs', labsRoutes.router);
 app.use('/user', userRoutes);
 
-app.get('/app_lab12.js', (req, res) => {
+app.get('/app.js', (req, res) => {
   fs.readFile(path.join(rootFolder, 'app_lab12.js'), (err, data) => {
     if (err) {
       console.error('Error leyendo app_lab12.js:', err);
