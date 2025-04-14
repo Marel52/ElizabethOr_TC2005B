@@ -19,6 +19,14 @@ html(class="has-background-black")
         if isLoggedIn
           div(class="navbar-menu is-active")
             div(class="navbar-start")
+              a(class="navbar-item" href="/files")
+                span(class="icon")
+                  i(class="fas fa-folder")
+                span Archivos
+              a(class="navbar-item" href="/files/upload")
+                span(class="icon")
+                  i(class="fas fa-upload")
+                span Subir archivo
               a(class="navbar-item" href="/user/users")
                 span(class="icon")
                   i(class="fas fa-users")
