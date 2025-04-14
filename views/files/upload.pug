@@ -1,0 +1,65 @@
+extends ../main
+
+block content
+  div(class="container has-text-centered")
+    h4(class="title is-4 has-text-white") Subir nuevo archivo
+    
+    if fileError
+      div(class="notification is-danger")
+        p #{fileError}
+    
+    if fileSuccess
+      div(class="notification is-success")
+        p #{fileSuccess}
+    
+    div(class="columns is-centered")
+      div(class="column is-half")
+        div(class="box has-background-dark has-text-white")
+          form(action="/files/upload" method="POST" enctype="multipart/form-data")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            
+            div(class="field")
+              label(for="archivo" class="label has-text-white") Selecciona un archivo:
+              div(class="control")
+                div(class="file has-name is-fullwidth")
+                  label(class="file-label")
+                    input(class="file-input" type="file" name="archivo" id="archivo" required)
+                    span(class="file-cta")
+                      span(class="file-icon")
+                        i(class="fas fa-upload")
+                      span(class="file-label") Elegir archivo...
+                    span(class="file-name has-background-dark has-text-white") Sin archivo seleccionado
+            
+            div(class="field mt-4")
+              label(for="descripcion" class="label has-text-white") Descripción (opcional):
+              div(class="control")
+                input(class="input is-dark" type="text" name="descripcion" id="descripcion" placeholder="Describe el archivo")
+            
+            div(class="field is-grouped is-grouped-right mt-4")
+              div(class="control")
+                button(type="submit" class="button is-primary") Subir archivo
+              div(class="control")
+                a(href="/files" class="button is-light") Cancelar
+    
+    div(class="mt-5")
+      a(href="/files" class="button is-light is-outlined")
+        span(class="icon")
+          i(class="fas fa-arrow-left")
+        span Volver a la lista
+
+block styles
+  script.
+    document.addEventListener('DOMContentLoaded', () => {
+      // Obtener referencias a los elementos
+      const fileInput = document.querySelector('input[type=file]');
+      const fileName = document.querySelector('.file-name');
+      
+      // Actualizar el nombre del archivo cuando se selecciona
+      fileInput.addEventListener('change', () => {
+        if (fileInput.files.length > 0) {
+          fileName.textContent = fileInput.files[0].name;
+        } else {
+          fileName.textContent = 'Sin archivo seleccionado';
+        }
+      });
+    });
