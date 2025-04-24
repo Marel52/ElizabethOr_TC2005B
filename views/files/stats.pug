@@ -1,0 +1,66 @@
+extends ../main
+
+block content
+  div(class="container has-text-centered")
+    h3(class="title is-3 has-text-white") Estadísticas de Archivos
+    
+    // Token CSRF oculto para AJAX
+    input(type="hidden" id="_csrf" value=csrfToken)
+    
+    div(class="columns is-centered")
+      div(class="column is-8")
+        div(class="box has-background-dark has-text-white")
+          // Indicador de carga
+          div(id="stats-loading" class="has-text-centered mb-4")
+            span(class="icon is-large has-text-white is-rotating")
+              i(class="fas fa-spinner fa-2x")
+            p(class="has-text-white") Cargando estadísticas...
+          
+          // Contenedor para las estadísticas
+          div(id="file-stats-container")
+            // Las estadísticas se cargarán mediante AJAX
+    
+    // Información del componente AJAX
+    div(class="box has-background-dark has-text-white mt-4")
+      h4(class="title is-4 has-text-white") Sobre esta página
+      p Esta página utiliza tecnología AJAX para cargar estadísticas de archivos de forma asíncrona.
+      
+      div(class="content has-text-left")
+        h5(class="title is-5 has-text-white") Componentes AJAX implementados:
+        ol
+          li 
+            strong Carga asíncrona de datos: 
+            span Las estadísticas se obtienen del servidor sin necesidad de recargar la página.
+          li 
+            strong Actualización dinámica del DOM: 
+            span El contenido se renderiza dinámicamente en JavaScript.
+          li 
+            strong Indicador de carga: 
+            span Un spinner muestra cuándo se está realizando la petición al servidor.
+          li 
+            strong Manejo de errores: 
+            span Si hay un problema al obtener los datos, se muestra un mensaje adecuado.
+    
+    div(class="buttons is-centered mt-5")
+      a(href="/ajax/search" class="button is-info")
+        span(class="icon")
+          i(class="fas fa-search")
+        span Ir a búsqueda AJAX
+      a(href="/files" class="button is-light is-outlined")
+        span(class="icon")
+          i(class="fas fa-arrow-left")
+        span Volver a archivos
+      a(href="/" class="button is-primary")
+        span(class="icon")
+          i(class="fas fa-home")
+        span Inicio
+
+block styles
+  style.
+    .is-rotating {
+      animation: spinAround 0.8s infinite linear;
+    }
+    @keyframes spinAround {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
