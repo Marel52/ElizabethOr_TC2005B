@@ -1,0 +1,60 @@
+doctype html
+html(class="has-background-black")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title= title || "Mis Labs"
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
+    
+    block styles
+  
+  body(class="has-background-black has-text-white")
+    // Navbar
+    nav(class="navbar is-black")
+      div(class="container")
+        div(class="navbar-brand")
+          a(class="navbar-item has-text-weight-bold is-size-4" href="/") Marel's
+        
+        if isLoggedIn
+          div(class="navbar-menu is-active")
+            div(class="navbar-start")
+              a(class="navbar-item" href="/files")
+                span(class="icon")
+                  i(class="fas fa-folder")
+                span Archivos
+              a(class="navbar-item" href="/files/upload")
+                span(class="icon")
+                  i(class="fas fa-upload")
+                span Subir archivo
+              a(class="navbar-item" href="/user/users")
+                span(class="icon")
+                  i(class="fas fa-users")
+                span Usuarios
+            
+            div(class="navbar-end")
+              div(class="navbar-item")
+                span(class="mr-2") Hola, #{userName}!
+              div(class="navbar-item")
+                a(class="button is-danger" onclick="window.location='/user/logout'")
+                  span(class="icon")
+                    i(class="fas fa-sign-out-alt")
+                  span Cerrar sesión
+    
+    // Main content
+    main
+      section(class="section")
+        div(class="container")
+          block content
+    
+    // Footer
+    footer(class="footer has-background-black has-text-white")
+      div(class="content has-text-centered")
+        p
+          strong(class="has-text-white") Mi App Web con Express 
+          span  - Creada para Construcción de software y toma de decisiones.
+        p
+          span Bulma CSS Framework - Licencia  
+          a(href="https://opensource.org/license/mit" class="has-text-primary") MIT
+    
+    script(src="/app.js")

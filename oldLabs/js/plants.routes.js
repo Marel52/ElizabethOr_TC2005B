@@ -1,3 +1,7 @@
+const express = require('express');
+
+const router = express.Router();
+
 const html_header = `
 <!DOCTYPE html>
 <html>
@@ -28,12 +32,16 @@ const html_header = `
       
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item">
+            <a href="/" class="navbar-item">
               Home
             </a>
       
-            <a class="navbar-item">
-              Documentation
+            <a href="/plantas/agregar" class="navbar-item">
+              Agregar planta
+            </a>
+
+            <a href="/plantas/regar" class="navbar-item">
+              Regar plantas
             </a>
       
             <div class="navbar-item has-dropdown is-hoverable">
@@ -80,7 +88,7 @@ const html_header = `
             </h1>
             `;
             
-const html_form = `<form action="/agregar" method="POST">
+const html_form = `<form action="/plantas/agregar" method="POST">
               <label for="nombre" class="label">Nombre de la planta</label>
               <input
                 class="input is-info"
@@ -115,68 +123,42 @@ const html_footer = `</div>
 
 const plantas = [];
 
-const http = require('http');
-
-const server = http.createServer( (request, response) => {  
-  
-  if(request.method == "GET" && (request.url == "/agregar" || request.url == "/")) {
-    console.log(request.url);
-    response.setHeader('Content-Type', 'text/html');
-    response.write(html_header + html_form + html_footer);
-    response.end();
-  } else if(request.method == "POST" && request.url == "/agregar") {
-    
-    const datos_completos = [];
-
-    request.on('data', (data)=>{
-      console.log(data);
-      datos_completos.push(data);
-    });
-
-    request.on('end', () => {
-      const string_datos_completos = Buffer.concat(datos_completos).toString();
-      console.log(string_datos_completos);
-      //split() separa un string por el parámetro recibido, 
-      //y cada parte la pone en un arreglo
-      const nueva_planta = string_datos_completos.split('=')[1];
-
-      //Si fueran 2 inputs:
-      //const nueva_planta = string_datos_completos.split('&')[0].split('=')[1];
-
-      plantas.push(nueva_planta);
-
-      response.setHeader('Content-Type', 'text/html');
-      response.write(html_header);
-      
-      response.write(`<div class="columns">`);
-      for(const planta of plantas) {
-        response.write(`<div class="column">`);
-        response.write(`<div class="card">
-          <div class="card-content">
-            <div class="content">`);
-        response.write(planta);
-        response.write(`</div>
-            </div>
-          </div>`);
-        response.write(`</div>`);
-      }
-      response.write(`</div>`);
-
-      response.write(html_footer);
-      response.end();
-
-    });
-
-  } else {
-    response.statusCode = 404;
-    response.setHeader('Content-Type', 'text/html');
-    response.write(html_header);
-    response.write('<div class="notification is-danger">La página no existe</div>');
-    response.write(html_footer);
-    response.end();
-  }
-    
+//router.get es para registrar un middleware para peticiones HTTP GET
+router.get('/agregar', (request, response, next) => {
+    response.send(html_header + html_form + html_footer);
 });
 
-server.listen(3000);
+//router.post es para registrar un middleware para peticiones HTTP POST
+router.post('/agregar', (request, response, next) => {
+    console.log(request.body);
+    plantas.push(request.body.nombre);
+    let html = html_header;
+    html += `<div class="columns">`;
+    for(let planta of plantas) {
+        html += `<div class="column">`;
+        html += `<div class="card">
+        <div class="card-content">
+          <div class="content">`;
+        html += planta;
+        html += `</div>
+                </div>
+              </div>
+            </div>`;
+    }
+    html += `</div>`;
+    html += html_footer;
+    response.send(html);
+});
+
+const path = require('path');
+
+router.get('/regar', (request, response, next) => {
+  response.sendFile(path.join(__dirname, '..', 'views', 'index.html'));
+});
+
+router.get('/regar', (request, response, next) => {
+    response.sendFile(path.join(__dirname, '..', 'views', 'index.html'));
+});
+
+module.exports = router;
 
