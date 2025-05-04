@@ -1,0 +1,52 @@
+extends ../main
+
+block content
+  div(class="container has-text-centered")
+    h3(class="title is-3 has-text-white") Archivos disponibles
+    
+    if fileSuccess
+      div(class="notification is-success")
+        p #{fileSuccess}
+    
+    if isLoggedIn
+      div(class="has-text-right mb-4")
+        a(href="/files/upload" class="button is-primary")
+          span(class="icon")
+            i(class="fas fa-upload")
+          span Subir nuevo archivo
+    
+    if files && files.length > 0
+      div(class="columns is-multiline is-centered")
+        each file in files
+          div(class="column is-12-mobile is-6-tablet is-4-desktop")
+            div(class="card has-background-dark")
+              div(class="card-content")
+                div(class="content has-text-white")
+                  p(class="title is-5 has-text-white") #{file.original_name}
+                  p(class="subtitle is-6 has-text-primary") Subido: #{new Date(file.upload_date).toLocaleString()}
+                  p(class="is-size-7") Tamaño: #{Math.round(file.size / 1024)} KB
+              
+              div(class="card-footer has-background-dark")
+                a(href=`/files/download/${file.id}` class="card-footer-item button is-primary is-outlined")
+                  span(class="icon")
+                    i(class="fas fa-download")
+                  span Descargar
+                
+                if isLoggedIn && (!file.user_id || file.user_id === userId)
+                  form(action=`/files/delete/${file.id}` method="POST" class="card-footer-item")
+                    input(type="hidden" name="_csrf" value=csrfToken)
+                    button(type="submit" class="button is-danger is-outlined")
+                      span(class="icon")
+                        i(class="fas fa-trash")
+                      span Eliminar
+    else
+      div(class="box has-background-dark has-text-white has-text-centered")
+        p No hay archivos disponibles.
+          
+    if !isLoggedIn
+      div(class="box has-background-dark has-text-white has-text-centered mt-4")
+        p Para subir archivos, debes 
+          a(href="/user/login" class="has-text-primary") iniciar sesión
+          |  o 
+          a(href="/user/register" class="has-text-primary") registrarte
+          | .

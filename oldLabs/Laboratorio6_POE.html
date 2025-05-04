@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Laboratorio6.css">
+    <title>Validador de Contraseñas - Lab6 </title>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Validador de Contraseñas</h1>
+        <form id="passwordForm">
+            <div class="grupo">
+                <label for="password1">Contraseña: </label>
+                <input id="password1" name="password1">
+            </div>
+            
+            <div class="grupo">
+                <label for="password2">Confirmar Contraseña: </label>
+                <input id="password2" name="password2">
+            </div>
+            
+            <div class="requisitos">
+                <h4>La contraseña debe tener: </h4>
+                <ul>
+                    <li id="length-req">Al menos 8 caracteres</li>
+                    <li id="letter-req">Al menos una letra</li>
+                    <li id="capital-req">Al menos una letra mayúscula</li>
+                    <li id="number-req">Al menos un número</li>
+                    <li id="match-req">Las contraseñas deben coincidir</li>
+                    <li id="blank-req">Sin espacios en blanco</li>
+                    <li id="null-req">Campos no vacíos</li>
+                </ul>
+            </div>
+            
+            <button type="submit">Crear Contraseña</button>
+        </form>
+    </div>
+    <details>
+        <summary>Preguntas</summary>
+        <section class="pregunta">
+            <h2>¿Por qué es una buena práctica usar JavaScript para checar que sean válidos
+                 los inputs de las formas antes de enviar los datos al servidor?</h2>
+            <p>Porque mejora la experiencia del usuario con retroalimentación inmediata, 
+                reduce la carga del servidor evitando envíos innecesarios y hace que la aplicación sea más rápida.</p>
+        </section>
+        <section class="pregunta">
+            <h2>¿Cómo puedes saltarte la seguridad de las validaciones hechas con JavaScript?</h2>
+            <p>Desactivando JavaScript, manipulando el código en las herramientas de desarrollo del navegador 
+                o enviando datos manualmente al servidor con herramientas como Postman.</p>
+        </section>
+        <section class="pregunta">
+            <h2>Si te puedes saltar la seguridad de las validaciones de JavaScript, entonces ¿por qué la primera pregunta dice que es una buena práctica?</h2>
+            <p>Porque agilizan la validación y mejoran la usabilidad, pero no sustituyen la validación del servidor, 
+                que es la verdadera capa de seguridad. Ambas deben usarse juntas.</p>
+        </section>
+
+        <h3>Referencias</h3>
+        <li>Ada. (2020, July 12). ¿Es seguro validar un formulario con Javascript? https://didacticode.com/seguro-validar-formulario-javascript/</li>
+        <li>Ada Lovecode - Didacticode. (2020, December 9). 🦘Cómo EVITAR la VALIDACIÓN de un formulario HTML5 💻 sin herramientas [Video]. YouTube. https://www.youtube.com/watch?v=DXjkaEQ55FM</li>
+        <li>Validación de formularios de datos - Aprende desarrollo web | MDN. (n.d.). MDN Web Docs. https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Form_validation</li>
+        
+    </details>
+    <script src="js/Laboratorio6.js"></script>
+</body>
+</html>
